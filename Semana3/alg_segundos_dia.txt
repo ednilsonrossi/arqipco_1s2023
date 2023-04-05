@@ -1,0 +1,18 @@
+Elabore um algoritmo que recebe do usuário uma hora e os minutos, 
+o algoritmo informa quantos segundos que se passaram desde o 
+início do dia.​
+
+-----------------------------------------------------------------
+
+Algoritmo
+declare
+    hora, minuto, segundo : numérico
+
+Início
+    Escreva("Digite hora e minutos: ")
+    Leia(hora, minuto)
+
+    segundo <- (hora * 60 + minuto) * 60
+
+    Escreva("Segundos: " + segundo)
+Fim

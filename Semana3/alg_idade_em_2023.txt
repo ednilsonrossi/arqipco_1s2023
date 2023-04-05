@@ -1,0 +1,17 @@
+Elabore um algoritmo que receba o ano de nascimento de uma pessoa 
+e informe a idade da pessoa em 2023.​
+
+-------------------------------------------------------------
+
+Algoritmo
+declare
+    valor : numérico
+
+Início
+    Escreva("Digite ano de nascimento: ")
+    Leia(valor)
+
+    valor <- 2023 - valor
+
+    Escreva("Idade em 2023: " + valor)
+Fim

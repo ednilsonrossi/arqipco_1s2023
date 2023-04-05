@@ -1,0 +1,18 @@
+Faça um algoritmo que calcule e mostre a área de um círculo.​
+
+------------------------------------------------------------
+
+Algoritmo
+declare
+    pi, raio, area : numérico
+
+Início
+    Escreva("Digite raio: ")
+    Leia(raio)
+
+    pi <- 3.1415
+
+    area <- (raio * raio) * pi
+
+    Escreva("Área do círculo: " + area)
+Fim

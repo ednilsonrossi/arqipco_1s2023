@@ -1,0 +1,30 @@
+A  padaria  Morada dos Pães vende uma certa quantidade de pães 
+franceses e uma quantidade de broas a cada dia. Cada pãozinho 
+custa R$ 0,35 e a broa custa R$ 2,00. Ao final do dia, o dono 
+quer saber quanto arrecadou com a venda dos pães e broas (juntos), 
+e quanto deve guardar numa conta de poupança 
+(10% do total arrecadado). Você foi contratado para fazer os 
+cálculos para o dono. Com base nestes fatos, faça um algoritmo 
+para ler as quantidades de pães e de broas, e depois calcular e 
+apresentar os dados solicitados. ​
+
+-----------------------------------------------------
+
+Algoritmo
+declare
+    paes, broas, valor : numérico
+
+Início
+    Escreva("Qnt de paes e broas: ")
+    Leia(paes)
+    Leia(broas)
+
+    valor <- paes * 0.35
+    valor <- valor + broas * 2
+    
+    Escreva("Total arrecadado: " + valor)
+
+    valor <- valor * 0.1
+
+    Escreva("Para poupança: " + valor)
+Fim

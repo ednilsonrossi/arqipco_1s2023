@@ -1,0 +1,17 @@
+Um haras deseja comprar ferraduras novas para todos seus 
+cavalos. Implemente um algoritmo que receba a quantidade de 
+cavalos do haras e informe a quantidade de ferraduras 
+necessárias.​
+
+----------------------------------------------------------
+Algoritmo
+declare
+    cavalos : numérico
+
+Início
+    Escreva("Quantidade de cavalos: ")
+    Leia(cavalos)
+
+    Escreva("Sao necessárias: " + (cavalos*4) + " ferraduras.")
+Fim
+

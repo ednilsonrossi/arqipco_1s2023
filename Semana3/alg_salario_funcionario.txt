@@ -1,0 +1,41 @@
+Faça um algoritmo que recebe o salário base de um funcionário, 
+calcula e mostra o salário a receber sabendo-se que o funcionário 
+tem gratificação de R$ 50 e paga imposto de 10% sobre o 
+salário base.​
+
+--------------------------------------------------------------------
+SOLUÇÃO 1:
+
+Algoritmo
+declare
+    salario : numérico
+
+Início
+    Escreva("Digite salário base: ")
+    Leia(salario)
+
+    salario <- salario * 0.9
+    salario <- salario + 50
+
+    Escreva ("Salário a receber: " + salario)
+Fim
+
+
+--------------------------------------------------------------------
+SOLUÇÃO 2:
+
+Algoritmo
+declare
+    salario : numérico
+    desconto: numérico
+
+Início
+    Escreva("Digite salário base: ")
+    Leia(salario)
+
+    desconto <- salario * 10 / 100
+    
+    salario <- salario - desconto + 50
+
+    Escreva ("Salário a receber: " + salario)
+Fim

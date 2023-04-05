@@ -1,0 +1,20 @@
+O restaurante Tempero Ardido cobra R$ 75,00 por cada quilo de 
+refeição. Elabore um algoritmo que receba o peso do prato do 
+cliente (em quilos) e imprima o valor a pagar. É importante 
+observar que a tara dos pratos é de 200 gramas (0,200 Kg).​
+
+---------------------------------------
+
+Algoritmo
+declare
+    balanca, valor : numérico
+
+Início
+    escreva("Peso da balança (KG): ")
+    leia(balanca)
+
+    balanca <- balanca - 0.2
+    valor <- balanca * 75
+
+    Escreva("Total a pagar: R$ " + valor)
+Fim

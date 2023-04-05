@@ -1,0 +1,23 @@
+Um motorista deseja abastecer seu veículo com X reais de 
+combustível. Implemente um algoritmo que receba o preço do 
+combustível e o valor que o motorista deseja. O algoritmo deve 
+exibir a quantidade de litros que foram abastecidos no tanque do 
+veículo.​
+
+---------------------------------------
+
+Algoritmo
+declare
+    valor, preco_litro, litros : numérico
+
+Início
+    escreva("Digite valor do abastecimento: ")
+    Leia(valor)
+
+    escreva("Digite valor do litro: ")
+    Leia(preco_litro)
+
+    litros <- valor / preco_litro
+
+    escreva("Litros abastecidos: " + litros)
+Fim

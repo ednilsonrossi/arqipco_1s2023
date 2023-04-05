@@ -1,0 +1,52 @@
+Desenvolva um algoritmo que calcule a média ponderada de um aluno. 
+Sabe-se que o peso das notas são: nota 1 com peso 5, 
+nota 2 com peso 7 e nota 3 com peso 3. O algoritmo deve obter as 
+notas e calcular a mostrar a média do aluno.​
+
+--------------------------------------------------------------
+SOLUÇÃO 1:
+
+Algoritmo
+declare
+    nota1, nota2, nota3 : numérico
+    peso1, peso2, peso3 : numérico
+    soma_pesos, soma_notas : numérico
+    media : numérico
+
+Início
+    peso1 <- 5
+    peso2 <- 7
+    peso3 <- 3
+
+    Escreva("Digite nota 1: ")
+    Leia(nota1)
+
+    Escreva("Digite nota 2: ")
+    Leia(nota2)
+    
+    Escreva("Digite nota 3: ")
+    Leia(nota3)
+
+    soma_notas <- nota1 * peso1 + nota2 * peso2 + nota3 * peso3
+    soma_pesos <- peso1 + peso2 + peso3
+    media <- soma_notas / soma_pesos
+
+    Escreva("Média Ponderada: " + media)
+Fim
+
+--------------------------------------------------------------
+SOLUÇÃO 2:
+
+Algoritmo
+declare
+    nota1, nota2, nota3 : numérico
+    media : numérico
+
+Início
+    Escreva("Digite 3 notas: ")
+    Leia(nota1, nota2, nota3)
+
+    media <- (nota1 * 5 + nota2 * 7 + nota3 * 3) / 15
+
+    Escreva("Média Ponderada: " + media)
+Fim
