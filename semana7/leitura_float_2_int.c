@@ -2,9 +2,14 @@
 
 int main(int argc, char const *argv[])
 {
-    float entrada = 5.36;
+    double entrada;
     double inteira, decimal;
     int reais, centavos;
+
+    printf("Digite float: \n");
+    scanf("%lf", &entrada);
+    printf("Digitado: %.28lf\n\n", entrada);
+
 
     /*
         Forma 1:
