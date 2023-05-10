@@ -1,16 +1,18 @@
 #include <stdio.h>
 
 void ordenar(float a, float b, float c);
+void ordenar_2(float arg1, float arg2, float arg3);
 void imprime(float a, float b, float c);
 
 int main(int argc, char const *argv[])
 {
     float n1, n2, n3;
 
-    printf("Digite 3 números: ");
+    printf("Digite 3 números: \n");  
     scanf("%f%f%f", &n1, &n2, &n3);
 
     ordenar(n1, n2, n3);
+    ordenar_2(n1, n2, n3);
 
     return 0;
 }
@@ -43,6 +45,30 @@ void ordenar(float a, float b, float c){
         }
     }
 
+}
+
+void ordenar_2(float arg1, float arg2, float arg3){
+    float troca;
+
+    if(arg1 > arg2){
+        troca = arg1;
+        arg1 = arg2;
+        arg2 = troca;
+    }
+
+    if(arg1 > arg3){
+        troca = arg1;
+        arg1 = arg3;
+        arg3 = troca;
+    }
+
+    if(arg2 > arg3){
+        troca = arg2;
+        arg2 = arg3;
+        arg3 = troca;
+    }
+
+    imprime(arg1, arg2, arg3);
 }
 
 void imprime(float a, float b, float c){

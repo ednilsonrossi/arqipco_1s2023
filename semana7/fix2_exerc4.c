@@ -19,8 +19,6 @@ int main(){
     scanf("%d", &a);
     scanf("%d", &b);
 
-    
-
     result = operacao(a, b, op);
     printf("%.1lf\n\n", result);
 
@@ -28,6 +26,30 @@ int main(){
 }
 
 
+double operacao(int a, int b, char op){
+    double retorno;
+    switch(op)
+    {
+        case '+': 
+            retorno = soma(a, b);
+            break;
+        case '-': 
+            retorno = subtracao(a, b);
+            break;
+        case '*': 
+            retorno = produto(a, b);
+            break;
+        case '/': 
+            retorno = divisao(a, b);
+            break;
+        default: 
+            printf("Operação inválida.\n");
+            retorno = 0;
+    }
+    return retorno;
+}
+
+/*
 double operacao(int a, int b, char op){
 
     if (op == '+')
@@ -51,6 +73,7 @@ double operacao(int a, int b, char op){
         return 0;
     }   
 }
+*/
 
 double soma(int a, int b){
     return a + b;
