@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 
     endrew = 0;
     divisor = 1;
-    while(divisor < numero){
+    while(divisor <= numero/2){
         if(numero % divisor == 0){
             //printf("Dividor: %d\n", divisor);
             endrew = endrew + divisor;
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 
     roberts = 0;
     divisor = 1;
-    while(divisor < endrew){
+    while(divisor <= endrew/2){
         if(endrew % divisor == 0){
             //printf("Dividor: %d\n", divisor);
             roberts = roberts + divisor;
