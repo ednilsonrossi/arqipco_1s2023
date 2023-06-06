@@ -7,6 +7,7 @@ void imprime_array(int array[], int size);
 int conta_par(int array[], int size);
 
 int main(int argc, char const *argv[]){
+    //Gera a semente
     srand( (unsigned) time(NULL) );
     int vet50[50];
     int vet100[100];
