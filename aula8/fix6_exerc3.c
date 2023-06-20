@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 9999
+#define MAX 999999
 #define TRUE 1
 #define FALSE 0
 
