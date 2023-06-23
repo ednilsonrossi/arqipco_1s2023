@@ -109,6 +109,7 @@ void show_all(struct tipo_aluno elements[], int size){
     int index;
     for(index = 0; index < size; index++){
         to_print(elements[index]);
+        //printf("Letra: %c\n", elements[index].name[0]);
     }
 }
 
