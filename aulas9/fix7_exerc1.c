@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define MAXSIZE 40
+#define MAXSIZE 4000
 
-struct minha_estrutura
+struct tipo_carro
 {   
     //Os campos da struct
     int placa;
@@ -9,58 +9,57 @@ struct minha_estrutura
     float velocidade_considerada;
 };
 
-int confere_placa(struct minha_estrutura arg, int arg_placa);
+struct tipo_dataset
+{
+    struct tipo_carro array[MAXSIZE];
+    int size;
+};
 
-int busca_placa(struct minha_estrutura array[], int size, int arg_placa);
+int menu();
+struct tipo_dataset inicializar();
+struct tipo_dataset adicionar_carro(struct tipo_dataset dados);
+void mostrar_todos(struct tipo_dataset dados);
+void mostra_infratores(struct tipo_dataset dados);
 
 int main(int argc, char const *argv[])
 {
-    struct minha_estrutura array[40];
-    struct minha_estrutura variavel_simple;
-    int index;
-    int quantidade;
+    int escolha;
+    struct tipo_dataset meus_dados;
+    meus_dados = inicializar();
 
-    /*
-    Exemplo de como utilizar uma variável de uma estrutura sem
-    a utilização de um vetor. Observa-se o uso dos campos normalmente
-    sem o uso de posição do vetor.
-    */
-    variavel_simple.placa = 9999
-    variavel_simple.velocidade_aferida = 1000;
-    variavel_simple.velocidade_considerada = 500;
+    do{
+        escolha = menu();
+        switch (escolha)
+        {
+        case 1:
+            meus_dados = adicionar_carro(meus_dados);
+            break;
 
-    printf("Quantidade de carros: ");
-    scanf("%d", &quantidade);
+        case 2:
+            mostrar_todos(meus_dados);
+            break;
 
-    /*
-    Leitura dos dados dos carros que passaram pela rodovia.
-    Observando que foi indicada a quantidade de carros.
-    */
-    for(index=0; index != quantidade; index += 1){
-        printf("Digite placa.............: ");
-        scanf("%d", &array[index].placa);
+        case 3:
+            mostra_infratores(meus_dados);
+            break;
+        
+        default:
+            break;
+        }
 
-        printf("Digite velocidade aferida: ");
-        scanf("%f", &array[index].velocidade_aferida);
-    }
+    }while(escolha != 0);
 
-    /*
-    Calcular a velocidade considerada para cada um dos carros que foram cadastrados.
-    Ou seja, velocidade cadastrada é a velocidade aferida - 7%.
-    */
-    for(index = 0; index != quantidade; index += 1){
-        array[index].velocidade_considerada = array[index].velocidade_aferida * 0.93;
-    }
+    return 0;
+}
 
-    /*
-    Lista de carros acima da velocidade.
-    */
+void mostra_infratores(struct tipo_dataset dados){
+
     printf("** VEÍCULOS INFRATORES ** \n");
-    for(index = 0; index != quantidade; index += 1){
-        if(array[index].velocidade_considerada > 80){
-            printf("\t %d \t %.2f", array[index].placa, array[index].velocidade_considerada);
+    for(int index = 0; index != dados.size; index += 1){
+        if(dados.array[index].velocidade_considerada > 80){
+            printf("\t %d \t %.2f", dados.array[index].placa, dados.array[index].velocidade_considerada);
 
-            if(array[index].velocidade_considerada <= 96) //96 é exatamente 20% de 80km/h
+            if(dados.array[index].velocidade_considerada <= 96) //96 é exatamente 20% de 80km/h
             {
                 printf("\t até 20%% acima do limite.\n");
             }
@@ -71,33 +70,52 @@ int main(int argc, char const *argv[])
         }
     }
 
-    return 0;
+}
+
+void mostrar_todos(struct tipo_dataset dados){
+    printf("*** TODOS OS VEÍCULOS CADASTRADOS ***\n");
+    for(int index = 0; index != dados.size; index += 1){
+        printf("\t %5d \t | \t %6.2f \t | \t %6.2f\n", 
+                dados.array[index].placa,
+                dados.array[index].velocidade_aferida,
+                dados.array[index].velocidade_considerada);
+    }
+}
+
+struct tipo_dataset adicionar_carro(struct tipo_dataset dados){
+    int posicao;
+
+    posicao = dados.size;
+    printf("Digite placa.............: ");
+    scanf("%d", &dados.array[posicao].placa);
+
+    printf("Digite velocidade aferida: ");
+    scanf("%f", &dados.array[posicao].velocidade_aferida);
+
+    dados.array[posicao].velocidade_considerada = dados.array[posicao].velocidade_aferida * 0.93;
+
+    dados.size += 1;
+
+    return dados;
 }
 
 
-int confere_placa(struct minha_estrutura arg, int arg_placa){
-    if(arg.placa == arg_placa){
-        return 1;
-    }else{
-        return 0;
-    }
+struct tipo_dataset inicializar(){
+    struct tipo_dataset nova;
+    nova.size = 0;
+    return nova;
 }
 
-int busca_placa(struct minha_estrutura array[], int size, int arg_placa){
-    int index = 0;
-    int achou = 0;
-    while(index < size && achou == 0){
-        if(array[index].placa == arg_placa){
-            achou = 1;
-        }
-        index += 1;
-    }
-
-    /*----exemplo sem sentido funcional----*/
-    for(index = 0; index != size; index += 1){
-        if(array[index].placa == arg_placa){
-            array[index].placa +=1
-        }
-    }
-    return achou;
-} 
+int menu(){
+    int escolha;
+    do{
+        printf(" --- MENU ---\n");
+        printf("(1) Adicionar novo veículo\n");
+        printf("(2) Mostrar todos os veículo\n");
+        printf("(3) Mostrar infratores\n");
+        printf("(0) Sair do sistema\n\n");
+        printf("Opção desejada: ");
+        scanf("%d", &escolha);
+    }while(escolha < 0 || escolha > 3);
+    return escolha;
+}
