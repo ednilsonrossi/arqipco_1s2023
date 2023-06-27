@@ -92,5 +92,12 @@ int busca_placa(struct minha_estrutura array[], int size, int arg_placa){
         }
         index += 1;
     }
+
+    /*----exemplo sem sentido funcional----*/
+    for(index = 0; index != size; index += 1){
+        if(array[index].placa == arg_placa){
+            array[index].placa +=1
+        }
+    }
     return achou;
 } 

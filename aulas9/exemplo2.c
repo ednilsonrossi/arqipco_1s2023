@@ -35,6 +35,41 @@ int main(int argc, char const *argv[]){
     size = 0;
     do{
         selected = main_menu();
+
+        /*Exemplo usando o switch para as operações
+        if(selected == 1){
+            insert(dataset, size);
+            size += 1;
+        }else if(select == 2){
+            show_all(dataset, size);
+        }else if(selected == 3){
+            printf("Sexo para relatório: ");
+            scanf("%c", &param_char);
+            __fpurge(stdin);
+            param_char = toupper(param_char);
+
+            printf("-- ESTUDANTES DO SEXO %C -- \n", param_char);
+            for(int pos = 0; pos != size; pos += 1){
+                if(dataset[pos].sex == param_char){
+                    to_print(dataset[pos]);
+                }
+            }
+        }else if(selected == 4){
+            printf("Idade para relatório: ");
+            scanf("%d", &param_int);
+            __fpurge(stdin);
+
+            printf("-- ESTUDANTES COM IDADE IGUAL OU SUPERIOR A %d -- \n", param_int);
+            for(int pos = 0; pos != size; pos += 1){
+                if(dataset[pos].age >= param_int){
+                    to_print(dataset[pos]);
+                }
+            }
+        }else{
+            printf("FINALIZANDO...\n\n");
+        }*/
+
+
         switch (selected){
         case 1:
             insert(dataset, size);
